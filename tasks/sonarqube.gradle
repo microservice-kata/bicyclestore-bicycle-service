@@ -1,0 +1,10 @@
+
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "bicyclestore-bicycle-service"
+        property "sonar.projectKey", "bicyclestore-bicycle-service"
+        property "sonar.jacoco.reportPaths", "${buildDir}/jacoco/junitPlatformTest.exec"
+    }
+}
