@@ -1,4 +1,4 @@
-package me.aikin.bicyclestore.order;
+package me.aikin.bicyclestore.bicycle;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

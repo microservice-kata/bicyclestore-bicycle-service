@@ -1,4 +1,4 @@
-package me.aikin.bicyclestore.order.component;
+package me.aikin.bicyclestore.bicycle.component;
 
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
