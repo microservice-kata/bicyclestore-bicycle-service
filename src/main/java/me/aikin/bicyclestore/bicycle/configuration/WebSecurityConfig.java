@@ -42,20 +42,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .cors()
-            .and()
+                .and()
             .csrf()
-            .disable()
+                .disable()
             .exceptionHandling()
-            .authenticationEntryPoint(unauthorizedHandler)
-            .and()
+                .authenticationEntryPoint(unauthorizedHandler)
+                .and()
             .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
             .authorizeRequests()
-            .antMatchers("/", "/favicon.ico")
-            .permitAll()
-            .anyRequest()
-            .authenticated();
+                .antMatchers("/", "/favicon.ico")
+                    .permitAll()
+                .anyRequest()
+                    .authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

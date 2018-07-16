@@ -9,5 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BicycleResponse {
+
     private String name;
+
+    private String description;
 }

@@ -4,11 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import me.aikin.bicyclestore.bicycle.api.playload.BicycleResponse;
 import me.aikin.bicyclestore.bicycle.security.principal.CurrentUser;
 import me.aikin.bicyclestore.bicycle.security.principal.UserPrincipal;
+import me.aikin.bicyclestore.bicycle.service.BicycleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -16,12 +18,14 @@ import java.util.List;
 @RequestMapping("/api/bicycles")
 public class BicycleController {
 
-    @GetMapping
-    public List<BicycleResponse> bicycles(@CurrentUser UserPrincipal currentUser) {
-        BicycleResponse bicycleResponse = BicycleResponse.builder()
-            .name(currentUser.getName())
-            .build();
+    @Autowired
+    private BicycleService bicycleService;
 
-        return Arrays.asList(bicycleResponse);
+    @GetMapping
+    @PreAuthorize("hasRole('USER')")
+    public List<BicycleResponse> bicycles(@CurrentUser UserPrincipal currentUser) {
+        return bicycleService.getBicycleResponses();
     }
+
+
 }

@@ -5,10 +5,10 @@ spring:
   profiles:
     active: test
   datasource:
-    url: jdbc:h2:mem:bicyclestore_order_test;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS bicyclestore_order_test\;SET SCHEMA bicyclestore_order_test
+    url: jdbc:h2:mem:bicyclestore_bicycle_test;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS bicyclestore_bicycle_test\;SET SCHEMA bicyclestore_bicycle_test
     username: root
     password:
-    name: bicyclestore_order_test
+    name: bicyclestore_bicycle_test
     driver-class-name: org.h2.Driver
     platform: h2
   jpa:
