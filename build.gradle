@@ -58,8 +58,11 @@ dependencies {
     compile("org.flywaydb:flyway-core:${flywayVersion}")
 
 
+
     compile("mysql:mysql-connector-java:${mysqlConnectorVersion}")
     compile("org.projectlombok:lombok:${lombokVersion}")
+    compile("net.logstash.logback:logstash-logback-encoder:${logstashVersion}")
+
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile('org.springframework.security:spring-security-test')
