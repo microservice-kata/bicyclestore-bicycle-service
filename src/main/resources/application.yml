@@ -1,19 +1,15 @@
 server:
-  port: 8280
+  port: 63005
 
 spring:
-  datasource:
-    url: PLACE_HOLDER
-    username: PLACE_HOLDER
-    password: PLACE_HOLDER
-    name: PLACE_HOLDER
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  profiles:
-    active: PLACE_HOLDER
+  application:
+    name: bicyclestore-bicycle-service
 
-security:
-  jwt:
-    secret: PLACE_HOLDER
-    expiration-in-seconds: PLACE_HOLDER
-    token-prefix: PLACE_HOLDER
-    toke-key: PLACE_HOLDER
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, shutdown
+  endpoint:
+    shutdown:
+      enabled: true
