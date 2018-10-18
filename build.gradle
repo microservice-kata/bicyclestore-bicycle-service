@@ -44,6 +44,8 @@ ext {
     jjwtVersion = "0.9.0"
     mysqlConnectorVersion = "6.0.6"
     lombokVersion = "1.16.20"
+    flywayVersion = "5.1.4"
+
     springExtensionVersion = "1.0.3"
     springMockMvCVersion = "2.9.0"
 }
@@ -53,6 +55,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+    compile("org.flywaydb:flyway-core:${flywayVersion}")
+
 
     compile("mysql:mysql-connector-java:${mysqlConnectorVersion}")
     compile("org.projectlombok:lombok:${lombokVersion}")
@@ -71,15 +75,8 @@ dependencies {
 
 
 
-def env = project.hasProperty("env") ? env : "dev"
+def env = project.hasProperty("env") ? env : "local"
 
-processResources {
-    println("active profile: ${env}")
-
-    include "application.yml"
-    include "application-${env}.yml"
-    include "db/migration/**"
-}
-build.dependsOn processResources
-bootRun.dependsOn flywayMigrate
 bootRun.systemProperty "spring.profiles.active", env
+
+bootRun.dependsOn flywayMigrate

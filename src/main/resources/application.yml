@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: bicyclestore-bicycle-service
+  flyway:
+    enabled: true
 
 management:
   endpoints:
